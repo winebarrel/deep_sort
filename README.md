@@ -2,6 +2,9 @@
 
 Sort Array/Hash/Enumerable recursively.
 
+[![Gem Version](https://badge.fury.io/rb/deep_sort.svg)](https://badge.fury.io/rb/deep_sort)
+[![Build Status](https://travis-ci.org/winebarrel/deep_sort.svg?branch=master)](https://travis-ci.org/winebarrel/deep_sort)
+
 ## Installation
 
 Add this line to your application's Gemfile:
