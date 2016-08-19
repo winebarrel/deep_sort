@@ -41,17 +41,37 @@ describe DeepSort do
     new_hash
   end
 
-  specify 'deep_sort' do
+  specify 'DeepSort.deep_sort(Hash)' do
+    expect(DeepSort.deep_sort(hash).pretty_inspect).to eq sorted_hash.pretty_inspect
+  end
+
+  specify 'DeepSort.deep_sort(Array)' do
+    expect(DeepSort.deep_sort([3, 2, 1])).to eq [1, 2, 3]
+  end
+
+  specify 'DeepSort.deep_sort(Enumerable)' do
+    expect(DeepSort.deep_sort(Set[3, 2, 1])).to eq Set[3, 2, 1]
+  end
+
+  specify 'DeepSort.deep_sort(Enumerable) with sort_enum' do
+    expect(DeepSort.deep_sort(Set[3, 2, 1], sort_enum: true)).to eq [1, 2, 3]
+  end
+
+  specify 'DeepSort.deep_sort(String)' do
+    expect(DeepSort.deep_sort("3,2,1")).to eq "3,2,1"
+  end
+
+  specify 'Hash#deep_sort' do
     expect(hash.deep_sort.pretty_inspect).to eq sorted_hash.pretty_inspect
     expect(hash.pretty_inspect).to_not eq sorted_hash.pretty_inspect
   end
 
-  specify 'deep_sort!' do
+  specify 'Hash#deep_sort!' do
     expect(hash.deep_sort!.pretty_inspect).to eq sorted_hash.pretty_inspect
     expect(hash.pretty_inspect).to eq sorted_hash.pretty_inspect
   end
 
-  specify 'sort_enum' do
+  specify 'Hash#deep_sort with sort_enum' do
     expect(hash.deep_sort(sort_enum: true).pretty_inspect).to eq sorted_hash_with_enum.pretty_inspect
   end
 end

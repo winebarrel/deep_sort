@@ -21,12 +21,14 @@ Or install it yourself as:
 
     $ gem install deep_sort
 
-## Additional methods
+## Methods
 
-* `Array#deep_sort`
-* `Array#deep_sort!`
-* `Hash#deep_sort`
-* `Hash#deep_sort!`
+* `DeepSort.deep_sort(obj, options = {})`
+* `require 'deep_sort/extend'`
+  * `Array#deep_sort(options = {})`
+  * `Array#deep_sort!(options = {})`
+  * `Hash#deep_sort(options = {})`
+  * `Hash#deep_sort!(options = {})`
 
 ## Usage
 
@@ -51,7 +53,7 @@ hash = {"firstName"=>"John",
         "tags"=>Set["staff", "engineer", {"joined_at"=>"2016", "emp_no"=>10}, "writer"]}
 
 
-pp hash.deep_sort
+pp DeepSort.deep_sort(hash)
 #=> {"address"=>
 #     {"city"=>"New York",
 #      "postalCode"=>"10021",
@@ -71,7 +73,7 @@ pp hash.deep_sort
 ### `sort_enum: true`
 
 ```ruby
-pp hash.deep_sort(sort_enum: true)
+pp DeepSort.deep_sort(sort_enum: true)
 #=> {"address"=>
 #     {"city"=>"New York",
 #      "postalCode"=>"10021",

@@ -1,14 +1,18 @@
-module DeepSort::HashExt
+module DeepSort::Hash
   def deep_sort!(options = {})
     new_hash = self.deep_sort(options)
     self.replace(new_hash)
   end
 
   def deep_sort(options = {})
+    DeepSort::Hash.deep_sort(self, options)
+  end
+
+  def self.deep_sort(hash, options = {})
     new_hash = {}
 
-    self.keys.sort_by(&:to_s).each do |key|
-      value = self[key]
+    hash.keys.sort_by(&:to_s).each do |key|
+      value = hash[key]
 
       case value
       when Array, Hash
@@ -24,8 +28,4 @@ module DeepSort::HashExt
 
     new_hash
   end
-end
-
-class Hash
-  prepend DeepSort::HashExt
 end

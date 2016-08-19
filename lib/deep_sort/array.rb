@@ -1,11 +1,15 @@
-module DeepSort::ArrayExt
+module DeepSort::Array
   def deep_sort!(options = {})
     new_array = self.deep_sort(options)
     self.replace(new_array)
   end
 
-  def deep_sort(options = {})
-    self.map {|value|
+  def deep_sort(options)
+    DeepSort::Array.deep_sort(self, options)
+  end
+
+  def self.deep_sort(array, options = {})
+    array.map {|value|
       case value
       when Array, Hash
         value.deep_sort(options)
@@ -20,8 +24,4 @@ module DeepSort::ArrayExt
       end
     }.sort_by(&:to_s)
   end
-end
-
-class Array
-  prepend DeepSort::ArrayExt
 end
