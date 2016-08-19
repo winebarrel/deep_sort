@@ -50,7 +50,6 @@ hash = {"firstName"=>"John",
         "number"=>[5, 4, 9, 7],
         "tags"=>Set["staff", "engineer", {"joined_at"=>"2016", "emp_no"=>10}, "writer"]}
 
-
 pp hash.deep_sort
 #=> {"address"=>
 #     {"city"=>"New York",
