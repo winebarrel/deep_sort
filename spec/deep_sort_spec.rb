@@ -74,4 +74,9 @@ describe DeepSort do
   specify 'Hash#deep_sort with sort_enum' do
     expect(hash.deep_sort(sort_enum: true).pretty_inspect).to eq sorted_hash_with_enum.pretty_inspect
   end
+
+  specify 'Enumerable#sort_enum' do
+    set = Set["staff", "engineer", {"joined_at"=>"2016", "emp_no"=>10}, "writer"]
+    expect(set.deep_sort).to eq ["engineer", "staff", "writer", {"emp_no"=>10, "joined_at"=>"2016"}]
+  end
 end

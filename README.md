@@ -29,6 +29,7 @@ Or install it yourself as:
   * `Array#deep_sort!(options = {})`
   * `Hash#deep_sort(options = {})`
   * `Hash#deep_sort!(options = {})`
+  * `Enumerable#deep_sort()`
 
 ## Usage
 
