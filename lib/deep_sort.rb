@@ -1,20 +1,15 @@
 require 'deep_sort/version'
-require 'deep_sort/array'
-require 'deep_sort/hash'
+require 'deep_sort/array_ext'
+require 'deep_sort/hash_ext'
 
 module DeepSort
   def deep_sort(obj, options = {})
-    case obj
-    when Array
-      DeepSort::Array.deep_sort(obj, options)
-    when Hash
-      DeepSort::Hash.deep_sort(obj, options)
-    when Enumerable
-      if options[:sort_enum]
-        DeepSort::Array.deep_sort(obj.to_a, options)
-      else
-        obj
-      end
+    if obj.is_a?(Array)
+      DeepSort::ArrayExt.deep_sort(obj, options)
+    elsif obj.is_a?(Hash)
+      DeepSort::HashExt.deep_sort(obj, options)
+    elsif options[:sort_enum] and obj.is_a?(Enumerable)
+      DeepSort::ArrayExt.deep_sort(obj.to_a, options)
     else
       obj
     end
