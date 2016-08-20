@@ -1,3 +1,4 @@
+require 'deep_sort'
 require 'deep_sort/enum_ext'
 
 class Array
