@@ -16,10 +16,10 @@ module DeepSort::Hash
 
       case value
       when Array, Hash
-        value = value.deep_sort(options)
+        value = DeepSort.deep_sort(value, options)
       when Enumerable
         if options[:sort_enum]
-          value = value.to_a.deep_sort(options)
+          value = DeepSort.deep_sort(value.to_a, options)
         end
       end
 

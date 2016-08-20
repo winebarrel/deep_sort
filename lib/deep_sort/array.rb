@@ -12,10 +12,10 @@ module DeepSort::Array
     array.map {|value|
       case value
       when Array, Hash
-        value.deep_sort(options)
+        DeepSort.deep_sort(value, options)
       when Enumerable
         if options[:sort_enum]
-          value.to_a.deep_sort(options)
+          DeepSort.deep_sort(value.to_a, options)
         else
           value
         end
