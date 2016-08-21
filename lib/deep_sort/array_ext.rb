@@ -9,7 +9,7 @@ module DeepSort::ArrayExt
   end
 
   def self.deep_sort(array, options = {})
-    array.map {|value|
+    array = array.map do |value|
       if value.is_a?(Array)
         DeepSort::ArrayExt.deep_sort(value, options)
       elsif value.is_a?(Hash)
@@ -19,6 +19,12 @@ module DeepSort::ArrayExt
       else
         value
       end
-    }.sort_by(&:to_s)
+    end
+
+    begin
+      array.sort
+    rescue
+      array.sort_by(&:to_s)
+    end
   end
 end

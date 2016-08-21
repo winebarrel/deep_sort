@@ -14,12 +14,14 @@ describe DeepSort do
       [{"type"=>"home", "number"=>"212 555-1234"},
        {"type"=>"fax", "number"=>"646 555-4567"}],
      "gender"=>{"type"=>"male"},
-     "number"=>[5, 4, 9, 7],
-     "tags"=>Set["staff", "engineer", {"joined_at"=>"2016", "emp_no"=>10}, "writer"]}
+     "number"=>[10, 5, 4, 9, 7],
+     "tags"=>Set["staff", "engineer", {"joined_at"=>"2016", "emp_no"=>10}, "writer"],
+     1=>2}
   end
 
   let(:sorted_hash) do
-    {"address"=>
+    {1=>2,
+     "address"=>
       {"city"=>"New York",
        "postalCode"=>"10021",
        "state"=>"NY",
@@ -31,7 +33,7 @@ describe DeepSort do
      "phoneNumber"=>
       [{"number"=>"212 555-1234", "type"=>"home"},
        {"number"=>"646 555-4567", "type"=>"fax"}],
-     "number" => [4, 5, 7, 9],
+     "number" => [4, 5, 7, 9, 10],
      "tags"=>Set["staff", "engineer", {"joined_at"=>"2016", "emp_no"=>10}, "writer"]}
   end
 

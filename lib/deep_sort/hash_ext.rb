@@ -10,8 +10,15 @@ module DeepSort::HashExt
 
   def self.deep_sort(hash, options = {})
     new_hash = {}
+    keys = hash.keys
 
-    hash.keys.sort_by(&:to_s).each do |key|
+    begin
+      keys = keys.sort
+    rescue
+      keys = keys.sort_by(&:to_s)
+    end
+
+    keys.each do |key|
       value = hash[key]
 
       if value.is_a?(Array)
