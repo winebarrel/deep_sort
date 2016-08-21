@@ -86,6 +86,6 @@ pp DeepSort.deep_sort(sort_enum: true)
 #    "phoneNumber"=>
 #     [{"number"=>"212 555-1234", "type"=>"home"},
 #      {"number"=>"646 555-4567", "type"=>"fax"}],
-#    "number" => [4, 5, 7, 9],
+#    "number" => [4, 5, 7, 9, 10],
 #    "tags"=>["engineer", "staff", "writer", {"emp_no"=>10, "joined_at"=>"2016"}]}
 ```
